@@ -48,6 +48,6 @@ def algo_webhook(request):
     if 'stop' in data:
         stop =  data['stop']
 
-    message = "幣種: " + basecurrency + "%0方向: " + side + "%0A進場價格: " + entry + "%0A第一止盈價格: " + tp1 + "%0A第二止盈價格: " + tp2 + "%0A第三止盈價格: " + tp3 + "%0A第四止盈價格: " + tp4 + "%0A止損價格: " + stop
+    message = "幣種: " + basecurrency + "\n方向: " + side + "\n進場價格: " + entry + "\n第一止盈價格: " + tp1 + "\n第二止盈價格: " + tp2 + "\n第三止盈價格: " + tp3 + "\n第四止盈價格: " + tp4 + "\n止損價格: " + stop
     telegram_message(message)
     return jsonify({"status": "success", "message": request.json})
