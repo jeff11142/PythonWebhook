@@ -1,10 +1,8 @@
-from flask import Flask, request, jsonify
+from flask import Flask, jsonify
 import requests
 
-def telegram_message(request):
-    data = request.json
-
-    url = "https://api.telegram.org/bot5570850767:AAG1ucj0OECjbfaWVcAYZKiKzI4AnUEwy04/sendMessage?chat_id=@jeffliu_trading_alert&text=test"
+def telegram_message(message):
+    url = "https://api.telegram.org/bot5570850767:AAG1ucj0OECjbfaWVcAYZKiKzI4AnUEwy04/sendMessage?chat_id=@jeffliu_trading_alert&text=" + message
     response = requests.get(url)
 
     # 检查请求是否成功
