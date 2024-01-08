@@ -11,6 +11,7 @@ def webhook():
 
 @app.route('/algo', methods=['POST'])
 def algo():
+    print("Received Algo Data")
     return algo_webhook(request)
 
 @app.route('/')
