@@ -9,6 +9,8 @@ print('api_key', api_key)
 print('api_secret', api_secret)
 
 client = Client(api_key=api_key, api_secret=api_secret)
+account = client.get_account()
+print('Account = ', account)
 
 def select_exchange(data):
     if 'basecurrency' in data:
@@ -20,8 +22,9 @@ def select_exchange(data):
             binance_exchange(data)
 
 def binance_exchange(data):
-    status = client.get_account_status()
+    status = client.get_account()
     print('Account Status = ', status)
+    return status
 
 # def okx_exchange(data):
 #     return True
