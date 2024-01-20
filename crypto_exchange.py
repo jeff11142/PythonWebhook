@@ -20,9 +20,10 @@ def select_exchange(data):
             binance_exchange(data)
 
 def binance_exchange(data):
+    get_account_balance()
+    
     basecurrency = ''
     currency = ''
-
 
     if 'basecurrency' in data:
         basecurrency =  data['basecurrency']
@@ -39,5 +40,9 @@ def binance_exchange(data):
     else:
         print('缺少必要的貨幣資訊')
 
-# def okx_exchange(data):
-#     return True
+def get_account_balance():
+    account_balance = client.get_account()
+
+    for balance in account_balance['balances']:
+        if float(balance['free']) > 0:
+            print(balance['asset'], balance['free'])
