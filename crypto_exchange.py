@@ -20,15 +20,23 @@ def select_exchange(data):
             binance_exchange(data)
 
 def binance_exchange(data):
+    basecurrency = ''
+    currency = ''
+
+
     if 'basecurrency' in data:
         basecurrency =  data['basecurrency']
 
     if 'currency' in data:
         currency =  data['currency']
 
-    name = basecurrency+currency
-    trade_fee = client.get_trade_fee(symbol=name)
-    print('Trade Fee = ', trade_fee)
+
+    if basecurrency and currency:
+        name = basecurrency + currency
+        trade_fee = client.get_trade_fee(symbol=name)
+        print('Trade Fee = ', trade_fee)
+    else:
+        print('缺少必要的貨幣資訊')
 
 # def okx_exchange(data):
 #     return True
