@@ -20,7 +20,8 @@ def select_exchange(data):
             binance_exchange(data)
 
 def binance_exchange(data):
-    get_account_balance()
+    available_balance = get_available_balance()
+    print('可用餘額 : ', available_balance)
 
     basecurrency = ''
     currency = ''
@@ -40,6 +41,9 @@ def binance_exchange(data):
     else:
         print('缺少必要的貨幣資訊')
 
-def get_account_balance():
+def get_available_balance():
     account_balance = client.futures_account_balance()
-    print('account_balance', account_balance)
+    for item in account_balance:
+        if item['asset'] == 'USDT':
+            return float(item['availableBalance'])
+    return 0
