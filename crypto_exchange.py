@@ -45,5 +45,5 @@ def get_available_balance():
     account_balance = client.futures_account_balance()
     for item in account_balance:
         if item['asset'] == 'USDT':
-            return float(item['availableBalance'])
+            return int(float(item['availableBalance']))
     return 0
