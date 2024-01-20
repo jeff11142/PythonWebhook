@@ -26,10 +26,11 @@ def binance_exchange(data):
 
     if 'basecurrency' in data:
         basecurrency =  data['basecurrency']
+        print('basecurrency = ', basecurrency)
 
     if 'currency' in data:
         currency =  data['currency']
-
+        print('currency = ', currency)
 
     if basecurrency and currency:
         name = basecurrency + currency
