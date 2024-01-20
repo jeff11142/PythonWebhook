@@ -9,8 +9,8 @@ print('api_key', api_key)
 print('api_secret', api_secret)
 
 client = Client(api_key=api_key, api_secret=api_secret)
-account = client.get_account()
-print('Account = ', account)
+trade_fee = client.get_trade_fee(symbol='BTCUSDT')
+print('Trade Fee = ', trade_fee)
 
 def select_exchange(data):
     if 'basecurrency' in data:
