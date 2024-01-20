@@ -21,7 +21,7 @@ def select_exchange(data):
 
 def binance_exchange(data):
     get_account_balance()
-    
+
     basecurrency = ''
     currency = ''
 
@@ -41,7 +41,7 @@ def binance_exchange(data):
         print('缺少必要的貨幣資訊')
 
 def get_account_balance():
-    account_balance = client.get_account()
+    account_balance = client.futures_account_balance()
 
     for balance in account_balance['balances']:
         if float(balance['free']) > 0:
