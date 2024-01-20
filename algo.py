@@ -1,6 +1,7 @@
 import json
 from flask import jsonify, request
 from telegram_bot import telegram_message
+from crypto_exchange import select_exchange
 
 def algo_webhook(request):
     data = request.json
@@ -50,4 +51,5 @@ def algo_webhook(request):
 
     message = "幣種: " + basecurrency + "\n方向: " + side + "\n進場價格: " + entry + "\n第一止盈價格: " + tp1 + "\n第二止盈價格: " + tp2 + "\n第三止盈價格: " + tp3 + "\n第四止盈價格: " + tp4 + "\n止損價格: " + stop
     telegram_message(message)
+    select_exchange(data)
     return jsonify({"status": "success", "message": request.json})
