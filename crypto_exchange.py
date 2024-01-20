@@ -42,7 +42,4 @@ def binance_exchange(data):
 
 def get_account_balance():
     account_balance = client.futures_account_balance()
-
-    for balance in account_balance['balances']:
-        if float(balance['free']) > 0:
-            print(balance['asset'], balance['free'])
+    print('account_balance', account_balance)
