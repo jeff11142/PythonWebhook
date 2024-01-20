@@ -11,12 +11,12 @@ print('api_secret', api_secret)
 client = Client(api_key=api_key, api_secret=api_secret)
 
 def select_exchange(data):
-    if 'basecurrency' in data:
-        basecurrency =  data['basecurrency']
+    if 'prefix' in data:
+        prefix =  data['prefix']
 
-        if basecurrency in ["BINANCE", "binance", "Binance"]:
+        if prefix in ["BINANCE", "binance", "Binance"]:
             binance_exchange(data)
-        elif basecurrency in ["OKX", "Okx", "okx"]:
+        elif prefix in ["OKX", "Okx", "okx"]:
             binance_exchange(data)
 
 def binance_exchange(data):
