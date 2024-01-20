@@ -5,6 +5,9 @@ import os
 load_dotenv()
 api_key = os.getenv('BINANCE_KEY')
 api_secret = os.getenv('BINANCE_SECRET')
+print('api_key', api_key)
+print('api_secret', api_secret)
+
 client = Client(api_key=api_key, api_secret=api_secret)
 
 def select_exchange(data):
